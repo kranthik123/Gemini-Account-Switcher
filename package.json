@@ -16,7 +16,8 @@
         "build": "tsc",
         "watch": "tsc --watch",
         "clean": "node -e \"import('node:fs/promises').then(fs=>fs.rm('dist',{recursive:true,force:true})).catch(()=>{})\"",
-        "rebuild": "npm run clean && npm run build"
+        "rebuild": "npm run clean && npm run build",
+        "postinstall": "npm run build"
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.0.0"
