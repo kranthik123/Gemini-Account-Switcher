@@ -1,0 +1,32 @@
+{
+    "name": "gemini-account-switcher",
+    "version": "1.0.0",
+    "description": "Switch between multiple Google OAuth accounts in Gemini CLI",
+    "author": "Kranthi Kavuri",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kranthik123/Gemini-Account-Switcher"
+    },
+    "type": "module",
+    "main": "dist/cli.js",
+    "bin": {
+        "gemini-accounts": "dist/cli.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc --watch",
+        "clean": "node -e \"import('node:fs/promises').then(fs=>fs.rm('dist',{recursive:true,force:true})).catch(()=>{})\"",
+        "rebuild": "npm run clean && npm run build"
+    },
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.0.0"
+    },
+    "devDependencies": {
+        "@types/node": "^22.0.0",
+        "typescript": "^5.7.0"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "license": "Apache-2.0"
+}
