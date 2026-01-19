@@ -13,17 +13,19 @@
         "gemini-accounts": "dist/cli.js"
     },
     "scripts": {
-        "build": "tsc",
+        "build:tsc": "tsc",
+        "build:bundle": "esbuild src/server.ts --bundle --platform=node --target=node18 --format=esm --outfile=dist/server.js --external:node:* && esbuild src/cli.ts --bundle --platform=node --target=node18 --format=esm --outfile=dist/cli.js --external:node:*",
+        "build": "npm run build:tsc && npm run build:bundle",
         "watch": "tsc --watch",
         "clean": "node -e \"import('node:fs/promises').then(fs=>fs.rm('dist',{recursive:true,force:true})).catch(()=>{})\"",
-        "rebuild": "npm run clean && npm run build",
-        "postinstall": "npm run build"
+        "rebuild": "npm run clean && npm run build"
     },
     "dependencies": {
         "@modelcontextprotocol/sdk": "^1.0.0"
     },
     "devDependencies": {
         "@types/node": "^22.0.0",
+        "esbuild": "^0.27.2",
         "typescript": "^5.7.0"
     },
     "engines": {
