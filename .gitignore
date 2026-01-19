@@ -1,8 +1,9 @@
 # Dependencies
 node_modules/
 
-# Build output
-dist/
+# Build output - NOTE: dist/ is NOT ignored because Gemini CLI
+# doesn't run npm install after cloning. Pre-built files are required.
+# dist/
 
 # IDE
 .vscode/
